@@ -74,70 +74,70 @@ Group1.movementModel = StationaryMovement
 Group1.groupID = bcon_A
 Group1.bufferSizer = 1G
 Group1.speed = 0,0
-Group1.nodeLocation = 1483,961
+Group1.nodeLocation = 1330,855
 ############################################################################
 
 Group2.movementModel = StationaryMovement
 Group2.groupID = bcon_B
 Group2.bufferSizer = 1G
 Group2.speed = 0,0
-Group2.nodeLocation = 1677,783
+Group2.nodeLocation = 1625,605
 ############################################################################
 
 Group3.movementModel = StationaryMovement
 Group3.groupID = bcon_C
 Group3.bufferSizer = 1G
 Group3.speed = 0,0
-Group3.nodeLocation = 1853,789
+Group3.nodeLocation = 1950,891
 ############################################################################
 
 Group4.movementModel = StationaryMovement
 Group4.groupID = bcon_D
 Group4.bufferSizer = 1G
 Group4.speed = 0,0
-Group4.nodeLocation = 1970,1180
+Group4.nodeLocation = 2050,590
 ############################################################################
 
 Group5.movementModel = StationaryMovement
 Group5.groupID = bcon_E
 Group5.bufferSizer = 1G
 Group5.speed = 0,0
-Group5.nodeLocation = 2147,506
+Group5.nodeLocation = 2105,388
 ############################################################################
 
 Group6.movementModel = StationaryMovement
 Group6.groupID = bcon_F
 Group6.bufferSizer = 1G
 Group6.speed = 0,0
-Group6.nodeLocation = 2020,1374
+Group6.nodeLocation = 1237,353
 ############################################################################
 
 Group7.movementModel = StationaryMovement
 Group7.groupID = bcon_G
 Group7.bufferSizer = 1G
 Group7.speed = 0,0
-Group7.nodeLocation = 2313,1168
+Group7.nodeLocation = 1497,639
 ############################################################################
 
 Group8.movementModel = StationaryMovement
 Group8.groupID = bcon_H
 Group8.bufferSizer = 1G
 Group8.speed = 0,0
-Group8.nodeLocation = 2387,1412
+Group8.nodeLocation = 1324,592
 ############################################################################
 
 Group9.movementModel = StationaryMovement
 Group9.groupID = bcon_I
 Group9.bufferSizer = 1G
 Group9.speed = 0,0
-Group9.nodeLocation = 2717,737
+Group9.nodeLocation = 1431,796
 ############################################################################
 
 Group10.movementModel = StationaryMovement
 Group10.groupID = bcon_J
 Group10.bufferSizer = 1G
 Group10.speed = 0,0
-Group10.nodeLocation = 2848,830
+Group10.nodeLocation = 2028,784
 
 # group11 specific settings
 Group11.groupID = c
