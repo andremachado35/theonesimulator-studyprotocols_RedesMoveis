@@ -1,3 +1,6 @@
 
 
 java -jar osm2wkt.jar mapa.osm
+
+java -jar osm2wkt.jar nova.osm
+java -jar osm2wkt.jar feup.osm

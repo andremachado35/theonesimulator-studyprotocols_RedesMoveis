@@ -1,0 +1,8 @@
+Especificação BT5: 
+	Data transfer rate: 2 Mbps (sem aumentar consumo de energia)
+	Alcance: 200 m
+	- Não dá para manter data rate máximo à distância máxima.
+
+	Data packets:
+	255 octets (255 x 8 bits)
+	

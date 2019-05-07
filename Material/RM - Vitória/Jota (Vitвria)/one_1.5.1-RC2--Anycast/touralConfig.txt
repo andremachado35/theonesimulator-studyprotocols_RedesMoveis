@@ -1,0 +1,196 @@
+# Default settings for the simulation
+#
+#######################################################################
+## Scenario settings
+Scenario.name = touralConfig
+Scenario.simulateConnections = true
+Scenario.updateInterval = 0.1
+# 43200s == 12h
+Scenario.endTime = 43200
+
+######################################################################
+
+Scenario.nrofHostGroups = 8
+
+#####################################################################
+##Group Settings
+
+#Group.movementModel = ShortestPathMapBasedMovement
+Group.router = EpidemicRouter
+#SprayAndWaitRouter
+Group.bufferSize = 5M
+#Group.waitTime = 0, 120
+# All nodes have the bluetooth interface
+Group.nrofInterfaces = 1
+Group.interface1 = btInterface
+# Walking speeds
+#Group.speed = 0.5, 1
+# Message TTL of 300 minutes (5 hours)
+Group.msgTtl = 60
+## numero de hosts
+
+######################
+##Group 1 settings
+Group1.groupID = t
+Group1.bufferSize = 50M
+Group1.movementModel = ShortestPathMapBasedMovement
+#Group1.router = SprayAndWaitRouter
+
+Group1.routeType = 1
+Group1.waitTime = 10, 20
+Group1.speed = 4, 7
+Group1.nrofHosts = 10
+##########
+#Group dos beacons
+Group2.groupID = beacon
+Group2.movementModel = StationaryMovement
+Group2.nodeLocation = 330,150
+Group2.nrofHosts = 1
+############
+Group3.groupID = beacon
+Group3.movementModel = StationaryMovement
+Group3.nodeLocation = 200,480
+Group3.nrofHosts = 1
+############
+Group4.groupID = beacon
+Group4.movementModel = StationaryMovement
+Group4.nodeLocation = 620,370
+Group4.nrofHosts = 1
+############
+Group5.groupID = beacon
+Group5.movementModel = StationaryMovement
+Group5.nodeLocation = 1000,735
+Group5.nrofHosts = 1
+
+
+Group6.groupID = beacon
+Group6.movementModel = StationaryMovement
+Group6.nodeLocation = 1293,240
+Group6.nrofHosts = 1
+
+#Group dos portais
+Group7.groupID = portal
+Group7.movementModel = MapRouteMovement
+Group7.routeFile= projeto/localPortals.wkt
+Group7.routeType = 2
+Group7.nrofHosts = 5
+
+##Group 8 settings
+Group8.groupID =anycast
+Group8.bufferSize = 50M
+Group8.movementModel = ShortestPathMapBasedMovement
+#Group8.router = SprayAndWaitRouter
+
+Group8.routeType = 1
+Group8.waitTime = 10, 20
+Group8.speed = 4, 7
+Group8.nrofHosts = 10
+
+#######################################################################
+
+## Interface-specific settings:
+# type : which interface class the interface belongs to
+# For different types, the sub-parameters are interface-specific
+# For SimpleBroadcastInterface, the parameters are:
+# transmitSpeed : transmit speed of the interface (bytes per second) 
+# transmitRange : range of the interface (meters)
+
+# "Bluetooth" interface for all nodes
+btInterface.type = SimpleBroadcastInterface
+# Transmit speed of 2 Mbps = 250kBps
+btInterface.transmitSpeed = 250k
+btInterface.transmitRange = 50
+
+# High speed, long range, interface for group 4
+#highspeedInterface.type = SimpleBroadcastInterface
+#highspeedInterface.transmitSpeed = 10M
+#highspeedInterface.transmitRange = 1000
+#################################################################
+
+## Message creation parameters 
+# How many event generators
+Events.nrof = 5
+# Class of the first event generator
+Events1.class = OneToEachMessageGenerator
+Events2.class = OneToEachMessageGenerator
+Events3.class = OneToEachMessageGenerator
+Events4.class = OneToEachMessageGenerator
+Events5.class = OneToEachMessageGenerator
+# (following settings are specific for the MessageEventGenerator class)
+# Creation interval in seconds (one new message every 25 to 35 seconds)
+#######Evento 1########
+Events1.interval = 1800
+
+# Message sizes (500kB - 1MB)
+Events1.size = 500k,1M
+# range of message source/destination addresses
+Events1.hosts = 10,10
+Events1.tohosts = 15,19
+# Message ID prefix
+Events1.prefix = M1-
+
+#######Evento 2########
+Events2.interval = 1800
+
+Events2.size = 500k,1M
+Events2.hosts = 11,11
+Events2.tohosts = 15,19
+Events2.prefix = M2-
+
+#######Evento 3########
+
+Events3.interval = 1800
+Events3.size = 500k,1M
+Events3.hosts = 12,12
+Events3.tohosts = 15,19
+Events3.prefix = M3-
+
+#######Evento 4########
+
+Events4.interval = 1800
+Events4.size = 500k,1M
+Events4.hosts = 13,13
+Events4.tohosts = 15,19
+Events4.prefix = M4-
+
+#######Evento 5########
+
+Events5.interval = 1800
+Events5.size = 500k,1M
+Events5.hosts = 14,14
+Events5.tohosts = 15,19
+Events5.prefix = M5-
+
+#######################################################################
+## Movement model settings
+# seed for movement models' pseudo random number generator (default = 0)
+
+MovementModel.worldSize = 1400, 1400
+# How long time to move hosts in the world before real simulation
+MovementModel.warmup = 1000
+
+## Map based movement -movement model specific settings
+MapBasedMovement.nrofMapFiles = 1
+
+MapBasedMovement.mapFile1 = projeto/guimaraesToural.osm.wkt
+
+######################################################################
+## Reports - all report names have to be valid report classes
+
+# how many reports to load
+Report.nrofReports = 1
+# length of the warm up period (simulated seconds)
+Report.warmup = 0
+# default directory of reports (can be overridden per Report with output setting)
+Report.reportDir = reports/
+# Report classes to load
+Report.report1 = MessageStatsReport
+
+## Default settings for some routers settings
+ProphetRouter.secondsInTimeUnit = 30
+SprayAndWaitRouter.nrofCopies = 6
+SprayAndWaitRouter.binaryMode = true
+
+#######################################################################
+## GUI settings
+

@@ -71,70 +71,70 @@ Group.nrofHosts = 1
 
 #following groups are the beacons. They have stationary movement and 0 speed
 Group1.movementModel = StationaryMovement
-Group1.groupID = bcon_A
+Group1.groupID = beacon1
 Group1.bufferSizer = 1G
 Group1.speed = 0,0
 Group1.nodeLocation = 1330,855
 ############################################################################
 
 Group2.movementModel = StationaryMovement
-Group2.groupID = bcon_B
+Group2.groupID = beacon2
 Group2.bufferSizer = 1G
 Group2.speed = 0,0
 Group2.nodeLocation = 1625,605
 ############################################################################
 
 Group3.movementModel = StationaryMovement
-Group3.groupID = bcon_C
+Group3.groupID = beacon3
 Group3.bufferSizer = 1G
 Group3.speed = 0,0
 Group3.nodeLocation = 1950,891
 ############################################################################
 
 Group4.movementModel = StationaryMovement
-Group4.groupID = bcon_D
+Group4.groupID = beacon4
 Group4.bufferSizer = 1G
 Group4.speed = 0,0
 Group4.nodeLocation = 2050,590
 ############################################################################
 
 Group5.movementModel = StationaryMovement
-Group5.groupID = bcon_E
+Group5.groupID = beacon5
 Group5.bufferSizer = 1G
 Group5.speed = 0,0
 Group5.nodeLocation = 2105,388
 ############################################################################
 
 Group6.movementModel = StationaryMovement
-Group6.groupID = bcon_F
+Group6.groupID = beacon6
 Group6.bufferSizer = 1G
 Group6.speed = 0,0
 Group6.nodeLocation = 1237,353
 ############################################################################
 
 Group7.movementModel = StationaryMovement
-Group7.groupID = bcon_G
+Group7.groupID = beacon7
 Group7.bufferSizer = 1G
 Group7.speed = 0,0
 Group7.nodeLocation = 1497,639
 ############################################################################
 
 Group8.movementModel = StationaryMovement
-Group8.groupID = bcon_H
+Group8.groupID = beacon8
 Group8.bufferSizer = 1G
 Group8.speed = 0,0
 Group8.nodeLocation = 1324,592
 ############################################################################
 
 Group9.movementModel = StationaryMovement
-Group9.groupID = bcon_I
+Group9.groupID = beacon9
 Group9.bufferSizer = 1G
 Group9.speed = 0,0
 Group9.nodeLocation = 1431,796
 ############################################################################
 
 Group10.movementModel = StationaryMovement
-Group10.groupID = bcon_J
+Group10.groupID = beacon10
 Group10.bufferSizer = 1G
 Group10.speed = 0,0
 Group10.nodeLocation = 2028,784
@@ -151,77 +151,24 @@ Group11.nrofHosts = 200
 
 ## Message creation parameters
 # How many event generators
-Events.nrof = 10
+Events.nrof = 40
 # Class of the first event generator
 Events1.class = MessageEventGenerator
-Events2.class = MessageEventGenerator
-Events3.class = MessageEventGenerator
-Events4.class = MessageEventGenerator
-Events5.class = MessageEventGenerator
-Events6.class = MessageEventGenerator
-Events7.class = MessageEventGenerator
-Events8.class = MessageEventGenerator
-Events9.class = MessageEventGenerator
-Events10.class = MessageEventGenerator
 
 # (following settings are specific for the MessageEventGenerator class)
 # Creation interval in seconds (one new message every 600 to 601 seconds)
 #Events1.interval = 1,1
-Events1.interval = 600, 601
-Events2.interval = 100000, 1000000
-Events3.interval = 100000, 1000000
-Events4.interval = 100000, 1000000
-Events5.interval = 100000, 1000000
-Events6.interval = 100000, 1000000
-Events7.interval = 100000, 1000000
-Events8.interval = 100000, 1000000
-Events9.interval = 100000, 1000000
-Events10.interval = 100000, 1000000
+Events1.interval = 5
 # Message sizes (500kB - 1MB)
 Events1.size = 1k,1k
-Events2.size = 1k,1k
-Events3.size = 1k,1k
-Events4.size = 1k,1k
-Events5.size = 1k,1k
-Events6.size = 1k,1k
-Events7.size = 1k,1k
-Events8.size = 1k,1k
-Events9.size = 1k,1k
-Events10.size = 1k,1k
 # range of message source/destination addresses
 #os primeiros 10 nodes vao mandar mensagens
-Events1.hosts = 0,0
-Events2.hosts = 1,1
-Events3.hosts = 2,2
-Events4.hosts = 3,3
-Events5.hosts = 4,4
-Events6.hosts = 5,5
-Events7.hosts = 6,6
-Events8.hosts = 7,7
-Events9.hosts = 8,8
-Events10.hosts = 9,9
+Events1.hosts = 0,9
 #todos os nodes serão alvo de mensagens 
 Events1.tohosts = 10,209
-Events2.tohosts = 10,209
-Events3.tohosts = 10,209
-Events4.tohosts = 10,209
-Events5.tohosts = 10,209
-Events6.tohosts = 10,209
-Events7.tohosts = 10,209
-Events8.tohosts = 10,209
-Events9.tohosts = 10,209
-Events10.tohosts = 10,209
 # Message ID prefix
 Events1.prefix = MA
-Events2.prefix = MB
-Events3.prefix = MC
-Events4.prefix = MD
-Events5.prefix = ME
-Events6.prefix = MF
-Events7.prefix = MG
-Events8.prefix = MH
-Events9.prefix = MI
-Events10.prefix = MJ
+
 
 
 ## Movement model settings
@@ -240,7 +187,7 @@ MapBasedMovement.mapFile1 = data/guimaraesshop.wkt
 ## Reports - all report names have to be valid report classes
 
 # how many reports to load
-Report.nrofReports = 6
+Report.nrofReports = 9
 # length of the warm up period (simulated seconds)
 Report.warmup = 0
 # default directory of reports (can be overridden per Report with output setting)
@@ -254,6 +201,10 @@ MessageLocationReport.messages = 1
 Report.report4 = MessageDelayReport
 Report.report5 = MessageReport
 Report.report6 = MessageStatsReport
+Report.report7 = MessageDeliveryReport
+Report.report8 = MessageLocationReport
+Report.report9 = DeliveredMessagesReport
+
 
 ## Default settings for some routers settings
 ProphetRouter.secondsInTimeUnit = 30

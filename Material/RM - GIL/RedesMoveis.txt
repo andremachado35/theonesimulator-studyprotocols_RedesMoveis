@@ -1,0 +1,98 @@
+Sara: sims 1 a 6
+Rui: sims 7 a 12
+Gil: sims 13 a 18
+Correr uma simulação, aplicar o parser, guardos os dados onde apetecer com o numero da simulação (1 a 18)
+Se vos ocorrer outra ideia de simulação experimentem e guardem os dados juntamente com os parâmetros da simulação
+-------------------------------------
+Bluetooth 4 -> 1 Mbps e 20m de range
+Runtime -> 5 horas
+Routing Epidemic
+Sim1:
+	Buffer Size: 5Mbytes
+	Message TTL: 10 min
+
+Sim2: 
+	Buffer Size: 10Mbytes
+	Message TTL: 10 min
+
+Sim3:
+	Buffer Size: 1Mbyte
+	Message TTL: 10 min
+
+*************************************
+Bluetooth 4 -> 1 Mbps e 20m de range
+Runtime -> 5 horas
+Routing Epidemic
+Sim4:
+	Buffer Size: 5Mbytes
+	Message TTL: 30 min
+
+Sim5: 
+	Buffer Size: 10Mbytes
+	Message TTL: 30 min
+
+Sim6:
+	Buffer Size: 1Mbyte
+	Message TTL: 30 min
+
+*************************************
+Bluetooth 4 -> 1 Mbps e 20m de range
+Runtime -> 5 horas
+Routing Epidemic
+Sim7:
+	Buffer Size: 5Mbytes
+	Message TTL: 60 min
+
+Sim8: 
+	Buffer Size: 10Mbytes
+	Message TTL: 60 min
+
+Sim9:
+	Buffer Size: 1Mbyte
+	Message TTL: 60 min
+
+*************************************
+Bluetooth 5 -> 2 Mbps e 40m de range
+Runtime -> 5 horas
+Routing Epidemic
+Sim10:
+	Buffer Size: 5Mbytes
+	Message TTL: 10 min
+
+Sim11: 
+	Buffer Size: 10Mbytes
+	Message TTL: 10 min
+
+Sim12:
+	Buffer Size: 1Mbyte
+	Message TTL: 10 min
+*************************************
+Bluetooth 5 -> 2 Mbps e 40m de range
+Runtime -> 5 horas
+Routing Epidemic
+Sim13:
+	Buffer Size: 5Mbytes
+	Message TTL: 30 min
+
+Sim14: 
+	Buffer Size: 10Mbytes
+	Message TTL: 30 min
+
+Sim15:
+	Buffer Size: 1Mbyte
+	Message TTL: 30 min
+*************************************
+Bluetooth 5 -> 2 Mbps e 40m de range
+Runtime -> 5 horas
+Routing Epidemic
+Sim16:
+	Buffer Size: 5Mbytes
+	Message TTL: 60 min
+
+Sim17: 
+	Buffer Size: 10Mbytes
+	Message TTL: 60 min
+
+Sim18:
+	Buffer Size: 1Mbyte
+	Message TTL: 60 min
