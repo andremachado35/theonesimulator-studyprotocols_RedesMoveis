@@ -36,10 +36,10 @@ public class MessageDeliveryReport extends Report implements MessageListener {
 
 	public void messageTransferred(Message m, DTNHost from, DTNHost to,
 			boolean firstDelivery) {
-		if (firstDelivery && !isWarmup() && !isWarmupID(m.getId())) {
+		//if (firstDelivery && !isWarmup() && !isWarmupID(m.getId())) {
 			delivered++;
 			reportValues();
-		}
+		//}
 	}
 
 	public void newMessage(Message m) {

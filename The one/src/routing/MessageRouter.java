@@ -382,7 +382,7 @@ public abstract class MessageRouter {
 		Message aMessage = (outgoing==null)?(incoming):(outgoing);
 		// If the application re-targets the message (changes 'to')
 		// then the message is not considered as 'delivered' to this host.
-		isFinalRecipient = false; //aMessage.getTo() == this.host;
+		isFinalRecipient = aMessage.getTo() == this.host;
 		isFirstDelivery = isFinalRecipient &&
 		!isDeliveredMessage(aMessage);
 

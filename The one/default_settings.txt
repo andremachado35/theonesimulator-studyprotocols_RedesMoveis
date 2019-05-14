@@ -29,7 +29,7 @@ highspeedInterface.transmitSpeed = 10M
 highspeedInterface.transmitRange = 1000
 
 # Define 11 different node groups
-Scenario.nrofHostGroups = 11
+Scenario.nrofHostGroups = 12
 
 ## Group-specific settings:
 # groupID : Group's identifier. Used as the prefix of host names
@@ -54,7 +54,7 @@ Scenario.nrofHostGroups = 11
 # Common settings for all groups
 Group.movementModel = ShortestPathMapBasedMovement
 #Group.movementModel = StationaryMovement
-Group.router = EpidemicRouter
+Group.router = SprayAndWaitRouter
 Group.bufferSize = 5M
 Group.waitTime = 0, 120
 # All nodes have the bluetooth interface
@@ -64,7 +64,7 @@ Group.interface1 = btInterface
 Group.speed = 0.5, 1.5
 # Message TTL of 300 minutes (5 hours)
 #Group.msgTtl = 300
-Group.msgTtl = 30
+Group.msgTtl = 500
 
 Group.nrofHosts = 1
 
@@ -138,6 +138,7 @@ Group10.groupID = beacon10
 Group10.bufferSizer = 1G
 Group10.speed = 0,0
 Group10.nodeLocation = 2028,784
+############################################################################
 
 # group11 specific settings
 Group11.groupID = c
@@ -147,7 +148,12 @@ Group11.okMaps = 1
 Group11.speed = 2.7, 13.9
 Group11.nrofHosts = 200
 #este GroupX.nrofHosts especifica o numero de objectos que um group irá ter, caso não seja definido, um grupo terá o nº default em Group.nrofHosts
-
+############################################################################
+Group12.movementModel = StationaryMovement
+Group12.groupID = beacon11  
+Group12.bufferSizer = 1G
+Group12.speed = 0,0
+Group12.nodeLocation = 0,0
 
 ## Message creation parameters
 # How many event generators
@@ -158,7 +164,7 @@ Events1.class = MessageEventGenerator
 # (following settings are specific for the MessageEventGenerator class)
 # Creation interval in seconds (one new message every 600 to 601 seconds)
 #Events1.interval = 1,1
-Events1.interval = 5
+Events1.interval = 4000
 # Message sizes (500kB - 1MB)
 Events1.size = 1k,1k
 # range of message source/destination addresses
@@ -208,7 +214,7 @@ Report.report9 = DeliveredMessagesReport
 
 ## Default settings for some routers settings
 ProphetRouter.secondsInTimeUnit = 30
-SprayAndWaitRouter.nrofCopies = 6
+SprayAndWaitRouter.nrofCopies = 400
 SprayAndWaitRouter.binaryMode = true
 
 ## Optimization settings -- these affect the speed of the simulation

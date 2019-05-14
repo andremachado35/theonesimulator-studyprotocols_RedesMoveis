@@ -194,7 +194,7 @@ public class MessageEventGenerator implements EventQueue {
 
 		/* Get two *different* nodes randomly from the host ranges */
 		from = drawHostAddress(this.hostRange);
-		to = drawToAddress(hostRange, from);
+		to = 210; //drawToAddress(hostRange, from);
 
 		msgSize = drawMessageSize();
 		interval = drawNextEventTimeDiff();
