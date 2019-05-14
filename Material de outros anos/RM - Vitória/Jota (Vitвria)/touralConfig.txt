@@ -1,0 +1,381 @@
+# Default settings for the simulation
+#
+#######################################################################
+## Scenario settings
+Scenario.name = touralConfig
+Scenario.simulateConnections = true
+Scenario.updateInterval = 0.1
+# 43200s == 12h
+Scenario.endTime = 43200
+
+######################################################################
+
+Scenario.nrofHostGroups = 31
+
+## Group-specific settings:
+# groupID : Group's identifier. Used as the prefix of host names
+# nrofHosts: number of hosts in the group
+# movementModel: movement model of the hosts (valid class name from movement package)
+# waitTime: minimum and maximum wait times (seconds) after reaching destination
+# speed: minimum and maximum speeds (m/s) when moving on a path
+# bufferSize: size of the message buffer (bytes)
+# router: router used to route messages (valid class name from routing package)
+# activeTimes: Time intervals when the nodes in the group are active (start1, end1, start2, end2, ...)
+# msgTtl : TTL (minutes) of the messages created by this host group, default=infinite
+
+## Group and movement model specific settings
+# pois: Points Of Interest indexes and probabilities (poiIndex1, poiProb1, poiIndex2, poiProb2, ... )
+#       for ShortestPathMapBasedMovement
+# okMaps : which map nodes are OK for the group (map file indexes), default=all 
+#          for all MapBasedMovent models
+# routeFile: route's file path - for MapRouteMovement
+# routeType: route's type - for MapRouteMovement
+
+# Common settings for all groups
+#Group.movementModel = ShortestPathMapBasedMovement
+#Group.router = EpidemicRouter
+Group.bufferSize = 5M
+Group.waitTime = 0, 120
+# All nodes have the bluetooth interface
+Group.nrofInterfaces = 1
+Group.interface1 = btInterface
+# Walking speeds
+#Group.speed = 0.5, 1.5
+# Message TTL of 300 minutes (5 hours)
+Group.msgTtl = 300
+
+#Antiga configuração dos beacons
+#Group1.movementModel = 
+#Group1.routeFile = path/pathbeacons.wkt
+#forma de fazer o percurso
+#Group1.routeType = 1
+
+####Groups: beacons
+
+Group1.groupID = beacon
+Group1.nrofHosts = 1
+Group1.movementModel = StationaryMovement
+Group1.nodeLocation= 1478,2490
+Group1.speed = 0, 0
+
+Group2.groupID = beacon
+Group2.nrofHosts = 1
+Group2.movementModel = StationaryMovement 
+Group2.nodeLocation= 1769,1128
+Group2.speed = 0, 0
+
+Group3.groupID = beacon
+Group3.nrofHosts = 1
+Group3.movementModel = StationaryMovement
+Group3.nodeLocation= 3523,1213
+Group3.speed = 0, 0
+
+Group4.groupID = beacon
+Group4.nrofHosts = 1
+Group4.movementModel = StationaryMovement
+Group4.nodeLocation= 2313,788
+Group4.speed = 0, 0
+
+Group5.groupID = beacon
+Group5.nrofHosts = 1
+Group5.movementModel = StationaryMovement
+Group5.nodeLocation= 2770,2776
+Group5.speed = 0, 0
+
+# cars
+Group6.groupID = car
+Group6.nrofHosts = 55
+# cars can drive only on roads
+Group6.okMaps = 1
+# 10-50 km/h
+Group6.speed = 2.7, 13.9
+Group6.movementModel = ShortestPathMapBasedMovement
+Group6.router = SprayAndWaitRouter
+
+# portais
+Group7.groupID = portal
+Group7.nrofHosts = 1
+Group7.movementModel = StationaryMovement
+Group7.nodeLocation= 1118,2664
+Group7.speed = 0, 0
+
+Group8.groupID = portal
+Group8.nrofHosts = 1
+Group8.movementModel = StationaryMovement
+Group8.nodeLocation= 1377,650
+Group8.speed = 0, 0
+
+Group9.groupID = portal
+Group9.nrofHosts = 1
+Group9.movementModel = StationaryMovement
+Group9.nodeLocation= 2062,2885
+Group9.speed = 0, 0
+
+Group10.groupID = portal
+Group10.nrofHosts = 1
+Group10.movementModel = StationaryMovement
+Group10.nodeLocation= 3501,679
+Group10.speed = 0, 0
+
+Group11.groupID = portal
+Group11.nrofHosts = 1
+Group11.movementModel = StationaryMovement
+Group11.nodeLocation= 2719,2154
+Group11.speed = 0, 0
+
+Group12.groupID = portal
+Group12.nrofHosts = 1
+Group12.movementModel = StationaryMovement
+Group12.nodeLocation= 2737,1299
+Group12.speed = 0, 0
+
+Group13.groupID = portal
+Group13.nrofHosts = 1
+Group13.movementModel = StationaryMovement
+Group13.nodeLocation= 2076,2012
+Group13.speed = 0, 0
+
+Group14.groupID = portal
+Group14.nrofHosts = 1
+Group14.movementModel = StationaryMovement
+Group14.nodeLocation= 1459,1648
+Group14.speed = 0, 0
+
+Group15.groupID = portal
+Group15.nrofHosts = 1
+Group15.movementModel = StationaryMovement
+Group15.nodeLocation= 3194,1132
+Group15.speed = 0, 0
+
+Group16.groupID = portal
+Group16.nrofHosts = 1
+Group16.movementModel = StationaryMovement
+Group16.nodeLocation= 2516,650
+Group16.speed = 0, 0
+
+Group17.groupID = portal
+Group17.nrofHosts = 1
+Group17.movementModel = StationaryMovement
+Group17.nodeLocation= 2231,1430
+Group17.speed = 0, 0
+
+Group18.groupID = portal
+Group18.nrofHosts = 1
+Group18.movementModel = StationaryMovement
+#???????
+Group18.nodeLocation= 3322,2396
+Group18.speed = 0, 0
+
+Group19.groupID = portal
+Group19.nrofHosts = 1
+Group19.movementModel = StationaryMovement
+Group19.nodeLocation= 1641,1090
+Group19.speed = 0, 0
+
+Group20.groupID = portal
+Group20.nrofHosts = 1
+Group20.movementModel = StationaryMovement
+Group20.nodeLocation= 3402,1906
+Group20.speed = 0, 0
+
+Group21.groupID = portal
+Group21.nrofHosts = 1
+Group21.movementModel = StationaryMovement
+Group21.nodeLocation= 2938,1654
+Group21.speed = 0, 0
+
+Group22.groupID = portal
+Group22.nrofHosts = 1
+Group22.movementModel = StationaryMovement
+Group22.nodeLocation= 2013,2428
+Group22.speed = 0, 0
+
+Group23.groupID = portal
+Group23.nrofHosts = 1
+Group23.movementModel = StationaryMovement
+Group23.nodeLocation= 1653,2313
+Group23.speed = 0, 0
+
+Group24.groupID = portal
+Group24.nrofHosts = 1
+Group24.movementModel = StationaryMovement
+Group24.nodeLocation= 2913,2509
+Group24.speed = 0, 0
+
+Group25.groupID = portal
+Group25.nrofHosts = 1
+Group25.movementModel = StationaryMovement
+Group25.nodeLocation= 3831,950
+Group25.speed = 0, 0
+
+#até aqui 19 portais...
+
+Group26.groupID = portal
+Group26.nrofHosts = 1
+Group26.movementModel = StationaryMovement
+Group26.nodeLocation= 3413,1473
+Group26.speed = 0, 0
+
+Group27.groupID = portal
+Group27.nrofHosts = 1
+Group27.movementModel = StationaryMovement
+#?????
+Group27.nodeLocation= 3768,2383
+Group27.speed = 0, 0
+
+Group28.groupID = portal
+Group28.nrofHosts = 1
+Group28.movementModel = StationaryMovement
+Group28.nodeLocation= 3672,1715
+Group28.speed = 0, 0
+
+#faltam meter três portais
+
+Group29.groupID = portal
+Group29.nrofHosts = 1
+Group29.movementModel = StationaryMovement
+Group29.nodeLocation= 1130,1232
+Group29.speed = 0, 0
+
+Group30.groupID = portal
+Group30.nrofHosts = 1
+Group30.movementModel = StationaryMovement
+Group30.nodeLocation= 2511,469
+Group30.speed = 0, 0
+
+Group31.groupID = portal
+Group31.nrofHosts = 1
+Group31.movementModel = StationaryMovement
+Group31.nodeLocation= 3194,2731
+Group31.speed = 0, 0
+
+#######################################################################
+
+## Interface-specific settings:
+# type : which interface class the interface belongs to
+# For different types, the sub-parameters are interface-specific
+# For SimpleBroadcastInterface, the parameters are:
+# transmitSpeed : transmit speed of the interface (bytes per second) 
+# transmitRange : range of the interface (meters)
+
+# "Bluetooth" interface for all nodes
+btInterface.type = SimpleBroadcastInterface
+# Transmit speed of 2 Mbps = 250kBps
+btInterface.transmitSpeed = 250k
+btInterface.transmitRange = 50
+
+# High speed, long range, interface for group 4
+#highspeedInterface.type = SimpleBroadcastInterface
+#highspeedInterface.transmitSpeed = 10M
+#highspeedInterface.transmitRange = 1000
+
+#################################################################
+## Message creation parameters 
+
+
+# How many event generators
+Events.nrof = 5
+
+# Class of the first event generator
+Events1.class = MessageEventGenerator
+# (following settings are specific for the MessageEventGenerator class)
+# Creation interval in seconds (one new message every 25 to 35 seconds)
+Events1.interval = 0,5
+# Message sizes (500kB - 1MB)
+Events1.size = 500k,1M
+# range of message source/destination addresses
+Events1.hosts = 0,0
+Events1.tohosts= 60,84
+# Message ID prefix
+Events1.prefix = M
+
+# Class of the first event generator
+Events2.class = MessageEventGenerator
+# (following settings are specific for the MessageEventGenerator class)
+# Creation interval in seconds (one new message every 25 to 35 seconds)
+Events2.interval = 0,5
+# Message sizes (500kB - 1MB)
+Events2.size = 500k,1M
+# range of message source/destination addresses
+Events2.hosts = 1,1
+Events2.tohosts= 60,84
+# Message ID prefix
+Events2.prefix = M
+
+
+# Class of the first event generator
+Events3.class = MessageEventGenerator
+# (following settings are specific for the MessageEventGenerator class)
+# Creation interval in seconds (one new message every 25 to 35 seconds)
+Events3.interval = 0,5
+# Message sizes (500kB - 1MB)
+Events3.size = 500k,1M
+# range of message source/destination addresses
+Events3.hosts = 2,2
+Events3.tohosts=60,84
+# Message ID prefix
+Events3.prefix = M
+
+
+# Class of the first event generator
+Events4.class = MessageEventGenerator
+# (following settings are specific for the MessageEventGenerator class)
+# Creation interval in seconds (one new message every 25 to 35 seconds)
+Events4.interval = 0,5
+# Message sizes (500kB - 1MB)
+Events4.size = 500k,1M
+# range of message source/destination addresses
+Events4.hosts = 3,3
+Events4.tohosts= 60,84
+# Message ID prefix
+Events4.prefix = M
+
+
+# Class of the first event generator
+Events5.class = MessageEventGenerator
+# (following settings are specific for the MessageEventGenerator class)
+# Creation interval in seconds (one new message every 25 to 35 seconds)
+Events5.interval = 0,5
+# Message sizes (500kB - 1MB)
+Events5.size = 500k,1M
+# range of message source/destination addresses
+Events5.hosts = 4,4
+Events5.tohosts= 60,84
+# Message ID prefix
+Events5.prefix = M
+
+
+#######################################################################
+## Movement model settings
+# seed for movement models' pseudo random number generator (default = 0)
+
+MovementModel.worldSize = 7000,7000
+# How long time to move hosts in the world before real simulation
+MovementModel.warmup = 1000
+
+## Map based movement -movement model specific settings
+MapBasedMovement.nrofMapFiles = 1
+
+MapBasedMovement.mapFile1 = data/Guimaraes/Guimaraesnew.osm.wkt
+
+######################################################################
+## Reports - all report names have to be valid report classes
+
+# how many reports to load
+Report.nrofReports = 1
+# length of the warm up period (simulated seconds)
+Report.warmup = 0
+# default directory of reports (can be overridden per Report with output setting)
+Report.reportDir = reports/
+# Report classes to load
+Report.report1 = MessageStatsReport
+
+## Default settings for some routers settings
+ProphetRouter.secondsInTimeUnit = 30
+
+SprayAndWaitRouter.nrofCopies = 6
+SprayAndWaitRouter.binaryMode = true
+
+#######################################################################
+## GUI settings
+

@@ -1,4 +1,0 @@
-# time  ID  size  fromHost  toHost  TTL  isResponse
-600.0000 M1 1000 bcon_G6 c139 300 N 
-1200.0000 M2 1000 bcon_C2 c24 300 N 
-1800.0000 M3 1000 bcon_H7 c192 300 N 

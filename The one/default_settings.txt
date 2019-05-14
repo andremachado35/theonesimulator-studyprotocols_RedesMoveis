@@ -1,0 +1,234 @@
+#
+# Default settings for the simulation
+#
+
+## Scenario settings
+Scenario.name = default_scenario
+Scenario.simulateConnections = true
+Scenario.updateInterval = 0.1
+# 43200s == 12h
+Scenario.endTime = 18000
+
+
+## Interface-specific settings:
+# type : which interface class the interface belongs to
+# For different types, the sub-parameters are interface-specific
+# For SimpleBroadcastInterface, the parameters are:
+# transmitSpeed : transmit speed of the interface (bytes per second)
+# transmitRange : range of the interface (meters)
+
+# "Bluetooth" interface for all nodes
+btInterface.type = SimpleBroadcastInterface
+# Transmit speed of 2 Mbps = 250kBps
+btInterface.transmitSpeed = 250k
+btInterface.transmitRange = 40
+
+# High speed, long range, interface for group 4
+highspeedInterface.type = SimpleBroadcastInterface
+highspeedInterface.transmitSpeed = 10M
+highspeedInterface.transmitRange = 1000
+
+# Define 11 different node groups
+Scenario.nrofHostGroups = 11
+
+## Group-specific settings:
+# groupID : Group's identifier. Used as the prefix of host names
+# nrofHosts: number of hosts in the group
+# movementModel: movement model of thde hosts (valid class name from movement package)
+# waitTime: minimum and maximum wait times (seconds) after reaching destination
+# speed: minimum and maximum speeds (m/s) when moving on a path
+# bufferSize: size of the message buffer (bytes)
+# router: router used to route messages (valid class name from routing package)
+# activeTimes: Time intervals when the nodes in the group are active (start1, end1, start2, end2, ...)
+# msgTtl : TTL (minutes) of the messages created by this host group, default=infinite
+
+## Group and movement model specific settings
+# pois: Points Of Interest indexes and probabilities (poiIndex1, poiProb1, poiIndex2, poiProb2, ... )
+#       for ShortestPathMapBasedMovement
+# okMaps : which map nodes are OK for the group (map file indexes), default=all
+#          for all MapBasedMovent models
+# routeFile: route's file path - for MapRouteMovement
+# routeType: route's type - for MapRouteMovement
+
+
+# Common settings for all groups
+Group.movementModel = ShortestPathMapBasedMovement
+#Group.movementModel = StationaryMovement
+Group.router = EpidemicRouter
+Group.bufferSize = 5M
+Group.waitTime = 0, 120
+# All nodes have the bluetooth interface
+Group.nrofInterfaces = 1
+Group.interface1 = btInterface
+# Walking speeds
+Group.speed = 0.5, 1.5
+# Message TTL of 300 minutes (5 hours)
+#Group.msgTtl = 300
+Group.msgTtl = 30
+
+Group.nrofHosts = 1
+
+
+#following groups are the beacons. They have stationary movement and 0 speed
+Group1.movementModel = StationaryMovement
+Group1.groupID = beacon1
+Group1.bufferSizer = 1G
+Group1.speed = 0,0
+Group1.nodeLocation = 1330,855
+############################################################################
+
+Group2.movementModel = StationaryMovement
+Group2.groupID = beacon2
+Group2.bufferSizer = 1G
+Group2.speed = 0,0
+Group2.nodeLocation = 1625,605
+############################################################################
+
+Group3.movementModel = StationaryMovement
+Group3.groupID = beacon3
+Group3.bufferSizer = 1G
+Group3.speed = 0,0
+Group3.nodeLocation = 1950,891
+############################################################################
+
+Group4.movementModel = StationaryMovement
+Group4.groupID = beacon4
+Group4.bufferSizer = 1G
+Group4.speed = 0,0
+Group4.nodeLocation = 2050,590
+############################################################################
+
+Group5.movementModel = StationaryMovement
+Group5.groupID = beacon5
+Group5.bufferSizer = 1G
+Group5.speed = 0,0
+Group5.nodeLocation = 2105,388
+############################################################################
+
+Group6.movementModel = StationaryMovement
+Group6.groupID = beacon6
+Group6.bufferSizer = 1G
+Group6.speed = 0,0
+Group6.nodeLocation = 1237,353
+############################################################################
+
+Group7.movementModel = StationaryMovement
+Group7.groupID = beacon7
+Group7.bufferSizer = 1G
+Group7.speed = 0,0
+Group7.nodeLocation = 1497,639
+############################################################################
+
+Group8.movementModel = StationaryMovement
+Group8.groupID = beacon8
+Group8.bufferSizer = 1G
+Group8.speed = 0,0
+Group8.nodeLocation = 1324,592
+############################################################################
+
+Group9.movementModel = StationaryMovement
+Group9.groupID = beacon9
+Group9.bufferSizer = 1G
+Group9.speed = 0,0
+Group9.nodeLocation = 1431,796
+############################################################################
+
+Group10.movementModel = StationaryMovement
+Group10.groupID = beacon10
+Group10.bufferSizer = 1G
+Group10.speed = 0,0
+Group10.nodeLocation = 2028,784
+
+# group11 specific settings
+Group11.groupID = c
+# cars can drive only on roads
+Group11.okMaps = 1
+# 10-50 km/h
+Group11.speed = 2.7, 13.9
+Group11.nrofHosts = 200
+#este GroupX.nrofHosts especifica o numero de objectos que um group irá ter, caso não seja definido, um grupo terá o nº default em Group.nrofHosts
+
+
+## Message creation parameters
+# How many event generators
+Events.nrof = 40
+# Class of the first event generator
+Events1.class = MessageEventGenerator
+
+# (following settings are specific for the MessageEventGenerator class)
+# Creation interval in seconds (one new message every 600 to 601 seconds)
+#Events1.interval = 1,1
+Events1.interval = 5
+# Message sizes (500kB - 1MB)
+Events1.size = 1k,1k
+# range of message source/destination addresses
+#os primeiros 10 nodes vao mandar mensagens
+Events1.hosts = 0,9
+#todos os nodes serão alvo de mensagens 
+Events1.tohosts = 10,209
+# Message ID prefix
+Events1.prefix = MA
+
+
+
+## Movement model settings
+# seed for movement models' pseudo random number generator (default = 0)
+MovementModel.rngSeed = 1
+# World's size for Movement Models without implicit size (width, height; meters)
+MovementModel.worldSize = 57000, 47000
+# How long time to move hosts in the world before real simulation
+MovementModel.warmup = 1000
+
+## Map based movement -movement model specific settings
+MapBasedMovement.nrofMapFiles = 1
+
+MapBasedMovement.mapFile1 = data/guimaraesshop.wkt
+
+## Reports - all report names have to be valid report classes
+
+# how many reports to load
+Report.nrofReports = 9
+# length of the warm up period (simulated seconds)
+Report.warmup = 0
+# default directory of reports (can be overridden per Report with output setting)
+Report.reportDir = reports/
+# Report classes to load
+Report.report1 = EventLogReport
+Report.report2 = CreatedMessagesReport
+Report.report3 = DistanceDelayReport
+MessageLocationReport.granularity = 1
+MessageLocationReport.messages = 1
+Report.report4 = MessageDelayReport
+Report.report5 = MessageReport
+Report.report6 = MessageStatsReport
+Report.report7 = MessageDeliveryReport
+Report.report8 = MessageLocationReport
+Report.report9 = DeliveredMessagesReport
+
+
+## Default settings for some routers settings
+ProphetRouter.secondsInTimeUnit = 30
+SprayAndWaitRouter.nrofCopies = 6
+SprayAndWaitRouter.binaryMode = true
+
+## Optimization settings -- these affect the speed of the simulation
+## see World class for details.
+Optimization.cellSizeMult = 5
+Optimization.randomizeUpdateOrder = true
+
+
+## GUI settings
+
+# GUI underlay image settings
+GUI.UnderlayImage.fileName = data/helsinki_underlay.png
+# Image offset in pixels (x, y)
+GUI.UnderlayImage.offset = 64, 20
+# Scaling factor for the image
+GUI.UnderlayImage.scale = 4.75
+# Image rotation (radians)
+GUI.UnderlayImage.rotate = -0.015
+
+# how many events to show in the log panel (default = 30)
+GUI.EventLogPanel.nrofEvents = 100
+# Regular Expression log filter (see Pattern-class from the Java API for RE-matching details)
+#GUI.EventLogPanel.REfilter = .*p[1-9]<->p[1-9]$

@@ -1,5 +1,0 @@
-# Scenario default_scenario
-# distance at msg send, delivery time, hop count, MSG_ID
-1055.9920 156.6000 4 M1
-350.7062 8.5000 10 M2
-453.0822 73.0000 14 M3

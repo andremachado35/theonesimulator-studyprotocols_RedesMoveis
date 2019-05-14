@@ -1,9 +1,0 @@
-# messages: ID, start time, end time
-MA1 600.0000 1133.2000 duplicate
-MA2 1200.0000 1408.4000 duplicate
-MA3 1800.0000 2122.9000 duplicate
-MA4 2400.0000 2635.0000 duplicate
-MA5 3000.0000 3557.7000 duplicate
-MA6 3600.0000 3867.5000 duplicate
-MA7 4200.0000 4585.8000 duplicate
-MA8 4800.0000 4969.5000 duplicate
