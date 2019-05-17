@@ -20,8 +20,8 @@ Scenario.endTime = 18000
 # "Bluetooth" interface for all nodes
 btInterface.type = SimpleBroadcastInterface
 # Transmit speed of 2 Mbps = 250kBps
-btInterface.transmitSpeed = 250k
-btInterface.transmitRange = 40
+btInterface.transmitSpeed = 1M
+btInterface.transmitRange = 20
 
 # High speed, long range, interface for group 4
 highspeedInterface.type = SimpleBroadcastInterface
@@ -64,7 +64,7 @@ Group.interface1 = btInterface
 Group.speed = 0.5, 1.5
 # Message TTL of 300 minutes (5 hours)
 #Group.msgTtl = 300
-Group.msgTtl = 500
+Group.msgTtl = 10
 
 Group.nrofHosts = 1
 

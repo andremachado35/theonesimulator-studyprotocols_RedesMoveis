@@ -1,9 +1,9 @@
 Message stats for scenario default_scenario
-sim_time: 6344.4000
-created: 520
-started: 108373
-relayed: 108370
-aborted: 1
+sim_time: 650.8000
+created: 50
+started: 8469
+relayed: 8468
+aborted: 0
 dropped: 0
 removed: 0
 delivered: 0

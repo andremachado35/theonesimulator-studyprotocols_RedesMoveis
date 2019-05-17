@@ -10,6 +10,7 @@ import java.util.List;
 
 import movement.MovementModel;
 import movement.Path;
+import movement.StationaryMovement;
 import routing.MessageRouter;
 import routing.util.RoutingInfo;
 
@@ -125,6 +126,9 @@ public class DTNHost implements Comparable<DTNHost> {
 			if (i.isActive()) return true;
 		}
 		return false;
+	}
+	public boolean isInstanceOfStationary(){
+		return this.movement instanceof StationaryMovement;
 	}
 
 	/**
