@@ -54,7 +54,7 @@ Scenario.nrofHostGroups = 12
 # Common settings for all groups
 Group.movementModel = ShortestPathMapBasedMovement
 #Group.movementModel = StationaryMovement
-Group.router = SprayAndWaitRouter
+Group.router = EpidemicRouter
 Group.bufferSize = 5M
 Group.waitTime = 0, 120
 # All nodes have the bluetooth interface
@@ -157,23 +157,77 @@ Group12.nodeLocation = 0,0
 
 ## Message creation parameters
 # How many event generators
-Events.nrof = 40
+Events.nrof = 10
 # Class of the first event generator
 Events1.class = MessageEventGenerator
+Events2.class = MessageEventGenerator
+Events3.class = MessageEventGenerator
+Events4.class = MessageEventGenerator
+Events5.class = MessageEventGenerator
+Events6.class = MessageEventGenerator
+Events7.class = MessageEventGenerator
+Events8.class = MessageEventGenerator
+Events9.class = MessageEventGenerator
+Events10.class = MessageEventGenerator
 
 # (following settings are specific for the MessageEventGenerator class)
 # Creation interval in seconds (one new message every 600 to 601 seconds)
 #Events1.interval = 1,1
-Events1.interval = 4000
+Events1.interval = 120, 121
+Events2.interval = 120, 121
+Events3.interval = 120, 121
+Events4.interval = 120, 121
+Events5.interval = 120, 121
+Events6.interval = 120, 121
+Events7.interval = 120, 121
+Events8.interval = 120, 121
+Events9.interval = 120, 121
+Events10.interval =120, 121
 # Message sizes (500kB - 1MB)
 Events1.size = 1k,1k
+Events2.size = 1k,1k
+Events3.size = 1k,1k
+Events4.size = 1k,1k
+Events5.size = 1k,1k
+Events6.size = 1k,1k
+Events7.size = 1k,1k
+Events8.size = 1k,1k
+Events9.size = 1k,1k
+Events10.size = 1k,1k
 # range of message source/destination addresses
 #os primeiros 10 nodes vao mandar mensagens
-Events1.hosts = 0,9
+Events1.hosts = 0,0
+Events2.hosts = 1,1
+Events3.hosts = 2,2
+Events4.hosts = 3,3
+Events5.hosts = 4,4
+Events6.hosts = 5,5
+Events7.hosts = 6,6
+Events8.hosts = 7,7
+Events9.hosts = 8,8
+Events10.hosts = 9,9
 #todos os nodes serão alvo de mensagens 
 Events1.tohosts = 10,209
+Events2.tohosts = 10,209
+Events3.tohosts = 10,209
+Events4.tohosts = 10,209
+Events5.tohosts = 10,209
+Events6.tohosts = 10,209
+Events7.tohosts = 10,209
+Events8.tohosts = 10,209
+Events9.tohosts = 10,209
+Events10.tohosts = 10,209
 # Message ID prefix
 Events1.prefix = MA
+Events2.prefix = MB
+Events3.prefix = MC
+Events4.prefix = MD
+Events5.prefix = ME
+Events6.prefix = MF
+Events7.prefix = MG
+Events8.prefix = MH
+Events9.prefix = MI
+Events10.prefix = MJ
 
 
 
@@ -193,7 +247,7 @@ MapBasedMovement.mapFile1 = data/guimaraesshop.wkt
 ## Reports - all report names have to be valid report classes
 
 # how many reports to load
-Report.nrofReports = 9
+Report.nrofReports = 10
 # length of the warm up period (simulated seconds)
 Report.warmup = 0
 # default directory of reports (can be overridden per Report with output setting)
@@ -210,6 +264,7 @@ Report.report6 = MessageStatsReport
 Report.report7 = MessageDeliveryReport
 Report.report8 = MessageLocationReport
 Report.report9 = DeliveredMessagesReport
+Report.report10 = CustomReport
 
 
 ## Default settings for some routers settings
