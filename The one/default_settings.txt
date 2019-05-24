@@ -59,7 +59,7 @@ Group.interface1 = btInterface
 Group.speed = 0.5, 1.5
 # Message TTL of 300 minutes (5 hours)
 #Group.msgTtl = 300
-Group.msgTtl = 30
+Group.msgTtl = 10
 
 Group.nrofHosts = 1
 
