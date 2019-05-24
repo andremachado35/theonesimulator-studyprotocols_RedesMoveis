@@ -20,8 +20,8 @@ Scenario.endTime = 18000
 # "Bluetooth" interface for all nodes
 btInterface.type = SimpleBroadcastInterface
 # Transmit speed of 2 Mbps = 250kBps
-btInterface.transmitSpeed = 2M
-btInterface.transmitRange = 20
+btInterface.transmitSpeed = 1M
+btInterface.transmitRange = 10
 
 # Define 11 different node groups
 Scenario.nrofHostGroups = 12
