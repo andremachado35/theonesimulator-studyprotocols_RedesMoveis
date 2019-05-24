@@ -20,8 +20,8 @@ Scenario.endTime = 18000
 # "Bluetooth" interface for all nodes
 btInterface.type = SimpleBroadcastInterface
 # Transmit speed of 2 Mbps = 250kBps
-btInterface.transmitSpeed = 1M
-btInterface.transmitRange = 20
+btInterface.transmitSpeed = 2M
+btInterface.transmitRange = 40
 
 # Define 11 different node groups
 Scenario.nrofHostGroups = 12
@@ -50,7 +50,7 @@ Scenario.nrofHostGroups = 12
 Group.movementModel = ShortestPathMapBasedMovement
 #Group.movementModel = StationaryMovement
 Group.router = EpidemicRouter
-Group.bufferSize = 5M
+Group.bufferSize = 0,512M
 Group.waitTime = 0, 120
 # All nodes have the bluetooth interface
 Group.nrofInterfaces = 1
@@ -59,7 +59,7 @@ Group.interface1 = btInterface
 Group.speed = 0.5, 1.5
 # Message TTL of 300 minutes (5 hours)
 #Group.msgTtl = 300
-Group.msgTtl = 10
+Group.msgTtl = 30
 
 Group.nrofHosts = 1
 
