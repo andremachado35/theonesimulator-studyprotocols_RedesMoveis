@@ -24,7 +24,8 @@ public class CustomReport extends Report
 	//Statistics
 	private List<Double> averages;
 	private List<Double> medians;
-	private List<Double> delays;
+	private List<Double> maxdelay;
+	private List<Double> mindelay;
 	private List<Double> deliveryPercs;
 	
 	/**
@@ -40,7 +41,8 @@ public class CustomReport extends Report
 		this.data = new HashMap<String, List<DataHolder>>();
 		this.averages = new ArrayList<Double>();
 		this.medians = new ArrayList<Double>();
-		this.delays = new ArrayList<Double>();
+		this.maxdelay = new ArrayList<Double>();
+		this.mindelay = new ArrayList<Double>();
 		this.deliveryPercs = new ArrayList<Double>();
 	}
 
@@ -51,8 +53,6 @@ public class CustomReport extends Report
 	}
 
 	public void messageTransferred(Message m, DTNHost from, DTNHost to, boolean finalTarget) {
-		// We only keep data when a message is transferred to a vehicle
-		if (!to.isInstanceOfStationary()) {
 			lastKey = m.getId();
 			if (data.containsKey(lastKey)) {
 				data.get(lastKey).add(new DataHolder(m, from, to));
@@ -61,7 +61,6 @@ public class CustomReport extends Report
 				list.add(new DataHolder(m, from, to));
 				data.put(lastKey, list);
 			}
-		}
 	}
 
 	public void newMessage(Message m) {
@@ -93,11 +92,23 @@ public class CustomReport extends Report
 		sb.append("\n# Message ID: " + id);
 
 		Message lastReceptor = dhList.get(dhList.size() - 1).m;
+		double coordX = lastReceptor.getPayload().getX();
+		double coordY = lastReceptor.getPayload().getY();
 
 		Double[] intervalValues = new Double[dhList.size()];
+		double maxDel = 0.0d;
+		double minDel = 9999999999.0d;
 		int counter = 0;
 		for (DataHolder dh : dhList) {
-			intervalValues[counter] = dh.m.getReceiveTime() - dh.m.getCreationTime();
+			double interval = dh.m.getReceiveTime() - dh.m.getCreationTime();
+
+			intervalValues[counter] = interval;
+			if(interval > maxDel) {
+				maxDel = interval;
+			}
+			if(interval < minDel) {
+				minDel = interval;
+			}
 			counter++;
 		}
 		
@@ -115,14 +126,21 @@ public class CustomReport extends Report
 		}
 
 		// Max Delay
-		double intervalFirstLast = (lastReceptor.getReceiveTime() - lastReceptor.getCreationTime());
-		sb.append("\nMax Delay: " + intervalFirstLast);
-		delays.add(intervalFirstLast);
+		sb.append("\nMax Delay: " + maxDel);
+		maxdelay.add(maxDel);
+
+		// Min Delay
+		sb.append("\nMin Delay: " + minDel);
+		mindelay.add(minDel);
 
 		// Delivery %
-		double delivery = (double) intervalValues.length / 200 * 100;
+		double delivery = (double) intervalValues.length / 209 * 100;
 		sb.append("\nDelivery (%): " + delivery );
-		deliveryPercs.add(delivery);		
+		deliveryPercs.add(delivery);	
+
+		// Payload
+		sb.append("\nPayload: (x,y)=(" + coordX + "," + coordY + ")");
+		deliveryPercs.add(delivery);
 		
 		return sb.toString();
 	}
@@ -145,17 +163,24 @@ public class CustomReport extends Report
 		sb.append("\nMedian: " + getMedian(medianValues));
 
 		// Max Average Delay
-		double simAvgDelay = 0.0;
-		for(double d : delays) {
-			simAvgDelay += d;
+		double simAvgMaxDelay = 0.0;
+		for(double d : maxdelay) {
+			simAvgMaxDelay += d;
 		}
-		sb.append("\nMax Average Delay: " + simAvgDelay / delays.size());
+		sb.append("\nMax Average Delay: " + simAvgMaxDelay / maxdelay.size());
 
 		// Max Delay
-		sb.append("\nMax Delay: " + Collections.max(delays));
+		sb.append("\nMax Delay: " + Collections.max(maxdelay));
+
+		// Min Average Delay
+		double simAvgMinDelay = 0.0;
+		for(double d : maxdelay) {
+			simAvgMinDelay += d;
+		}
+		sb.append("\nMin Average Delay: " + simAvgMinDelay / maxdelay.size());
 
 		// Min Delay
-		sb.append("\nMin Delay: " + Collections.min(delays));
+		sb.append("\nMin Delay: " + Collections.min(mindelay));
 		
 		// Average Delivery %
 		double simAvgDelivery = 0.0;

@@ -23,11 +23,6 @@ btInterface.type = SimpleBroadcastInterface
 btInterface.transmitSpeed = 1M
 btInterface.transmitRange = 20
 
-# High speed, long range, interface for group 4
-highspeedInterface.type = SimpleBroadcastInterface
-highspeedInterface.transmitSpeed = 10M
-highspeedInterface.transmitRange = 1000
-
 # Define 11 different node groups
 Scenario.nrofHostGroups = 12
 
@@ -173,16 +168,16 @@ Events10.class = MessageEventGenerator
 # (following settings are specific for the MessageEventGenerator class)
 # Creation interval in seconds (one new message every 600 to 601 seconds)
 #Events1.interval = 1,1
-Events1.interval = 120, 121
-Events2.interval = 120, 121
-Events3.interval = 120, 121
-Events4.interval = 120, 121
-Events5.interval = 120, 121
-Events6.interval = 120, 121
-Events7.interval = 120, 121
-Events8.interval = 120, 121
-Events9.interval = 120, 121
-Events10.interval =120, 121
+Events1.interval = 120, 120
+Events2.interval = 120, 120
+Events3.interval = 120, 120
+Events4.interval = 120, 120
+Events5.interval = 120, 120
+Events6.interval = 120, 120
+Events7.interval = 120, 120
+Events8.interval = 120, 120
+Events9.interval = 120, 120
+Events10.interval =120, 120
 # Message sizes (500kB - 1MB)
 Events1.size = 1k,1k
 Events2.size = 1k,1k

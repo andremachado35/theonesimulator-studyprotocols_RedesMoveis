@@ -34,6 +34,8 @@ public class Message implements Comparable<Message> {
 	private double timeCreated;
 	/** Initial TTL of the message */
 	private int initTtl;
+	/** Initial TTL of the message */
+	private Coord payload;
 
 	/** if a response to this message is required, this is the size of the
 	 * response message (or 0 if no response is requested) */
@@ -77,6 +79,7 @@ public class Message implements Comparable<Message> {
 		this.requestMsg = null;
 		this.properties = null;
 		this.appID = null;
+		this.payload = from.getLocation();
 
 		Message.nextUniqueId++;
 		addNodeOnPath(from);
@@ -358,6 +361,14 @@ public class Message implements Comparable<Message> {
 	 */
 	public void setAppID(String appID) {
 		this.appID = appID;
+	}
+
+	public Coord getPayload() {
+		return payload;
+	}
+
+	public void setPayload(Coord payload) {
+		this.payload = payload;
 	}
 
 }
