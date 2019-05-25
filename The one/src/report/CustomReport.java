@@ -140,7 +140,7 @@ public class CustomReport extends Report
 
 		// Payload
 		sb.append("\nPayload: (x,y)=(" + coordX + "," + coordY + ")");
-		deliveryPercs.add(delivery);
+
 		
 		return sb.toString();
 	}
@@ -174,10 +174,10 @@ public class CustomReport extends Report
 
 		// Min Average Delay
 		double simAvgMinDelay = 0.0;
-		for(double d : maxdelay) {
+		for(double d : mindelay) {
 			simAvgMinDelay += d;
 		}
-		sb.append("\nMin Average Delay: " + simAvgMinDelay / maxdelay.size());
+		sb.append("\nMin Average Delay: " + simAvgMinDelay / mindelay.size());
 
 		// Min Delay
 		sb.append("\nMin Delay: " + Collections.min(mindelay));
