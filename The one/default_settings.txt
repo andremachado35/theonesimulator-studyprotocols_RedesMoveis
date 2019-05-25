@@ -20,8 +20,8 @@ Scenario.endTime = 18000
 # "Bluetooth" interface for all nodes
 btInterface.type = SimpleBroadcastInterface
 # Transmit speed of 2 Mbps = 250kBps
-btInterface.transmitSpeed = 125k
-btInterface.transmitRange = 20  
+btInterface.transmitSpeed = 250k
+btInterface.transmitRange = 40  
 
 # Define 11 different node groups
 Scenario.nrofHostGroups = 12
@@ -59,7 +59,7 @@ Group.interface1 = btInterface
 Group.speed = 0.5, 1.5
 # Message TTL of 300 minutes (5 hours)
 #Group.msgTtl = 300
-Group.msgTtl = 30
+Group.msgTtl =  20
 
 Group.nrofHosts = 1
 
@@ -228,7 +228,7 @@ Events10.prefix = MJ
 
 ## Movement model settings
 # seed for movement models' pseudo random number generator (default = 0)
-MovementModel.rngSeed = 1
+MovementModel.rngSeed =1    
 # World's size for Movement Models without implicit size (width, height; meters)
 MovementModel.worldSize = 57000, 47000
 # How long time to move hosts in the world before real simulation
@@ -265,7 +265,7 @@ Report.report10 = CustomReport
 ## Default settings for some routers settings
 ProphetRouter.secondsInTimeUnit = 30
 SprayAndWaitRouter.nrofCopies = 400
-SprayAndWaitRouter.binaryMode = true
+SprayAndWaitRouter.binaryMode = false
 
 ## Optimization settings -- these affect the speed of the simulation
 ## see World class for details.

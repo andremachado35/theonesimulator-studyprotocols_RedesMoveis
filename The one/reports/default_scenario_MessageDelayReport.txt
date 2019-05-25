@@ -1,0 +1,2 @@
+# messageDelay  cumulativeProbability
+# no messages delivered in sim time 18000.0000
