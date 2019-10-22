@@ -1,7 +1,7 @@
 Study of vehicular network protocols
 v2v and v2i 
-using the simulator the one.
-Also have custom reports implemented.
+using the simulator "the one".
+Also have custom reports implemented using java.
 
 Copyright 
 Universidade do Minho @ Redes móveis 2017-2018
